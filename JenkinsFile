@@ -29,7 +29,7 @@ pipeline {
         }
 		stage("Push to Git Repository") {
 			environment {
-				GITHUB_TOKEN = "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"
+				GITHUB_TOKEN = "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"
 				GIT_USER_NAME = "arifislam007"
 				GIT_REPO_NAME = "spring-bot-jenkins-k8s.git"
 			}
@@ -38,10 +38,11 @@ pipeline {
 				sh '''
 					#git config --global user.email "islam.arif87@gmail.com"
 					#git config --global user.name "arifislam007"
-					git add deployment.yml
-					git commit -m "deployment file updated"
-					git add origin https://github.com/arifislam007/spring-bot-jenkins-k8s.git
-					git push https://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@github.com/arifislam007/spring-bot-jenkins-k8s.git HEAD:main
+					git checkout -b staging
+					git add .
+					git commit -m "deployment file updated version ${BUILD_NUMBER}"
+					git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
+					git push origin staging
 				'''
 				
 			}
