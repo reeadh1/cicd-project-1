@@ -29,7 +29,7 @@ pipeline {
         }
 		stage("Push to Git Repository") {
 			environment {
-				GITHUB_TOKEN = "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"
+				GITHUB_TOKEN = "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"
 				GIT_USER_NAME = "arifislam007"
 				GIT_REPO_NAME = "cicd-project-1.git"
 			}
