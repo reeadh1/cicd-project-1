@@ -36,9 +36,9 @@ pipeline {
 			steps {
 				
 				sh '''
-					#git config --global user.email "islam.arif87@gmail.com"
-					#git config --global user.name "arifislam007"
-					git checkout -b staging
+					git config --global user.email "islam.arif87@gmail.com"
+					git config --global user.name "arifislam007"
+					#git checkout -b staging
 					git add .
 					git commit -m "deployment file updated version ${BUILD_NUMBER}"
 					git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
