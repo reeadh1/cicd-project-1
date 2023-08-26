@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo passed'
-                git branch: 'main', url: 'https://github.com/arifislam007/spring-bot-jenkins-k8s.git'
+                git branch: 'main', url: 'https://github.com/arifislam007/cicd-project-1.git'
             }
         }
         stage('Build and Test') {
@@ -31,7 +31,7 @@ pipeline {
 			environment {
 				GITHUB_TOKEN = "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"
 				GIT_USER_NAME = "arifislam007"
-				GIT_REPO_NAME = "spring-bot-jenkins-k8s.git"
+				GIT_REPO_NAME = "cicd-project-1.git"
 			}
 			steps {
 				
