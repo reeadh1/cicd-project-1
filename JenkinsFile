@@ -40,7 +40,8 @@ pipeline {
 					git config --global user.name "arifislam007"
 					git add .
 					git commit -m "deployment file updated version ${BUILD_NUMBER}"
-					git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
+					git remote set-url origin https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
+					#git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
 					git push origin main
 				'''
 				
