@@ -42,7 +42,7 @@ pipeline {
 					git add .
 					git commit -m "deployment file updated version ${BUILD_NUMBER}"
 					git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
-					git push origin staging
+					git push origin main
 				'''
 				
 			}
