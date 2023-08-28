@@ -41,7 +41,7 @@ pipeline {
 					git config --global user.name "arifislam007"
 					git add .
 					git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-					git push https://${GIT_USER_NAME}:${GITHUB_TOKEN} github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+					git push ${GIT_USER_NAME}:${GITHUB_TOKEN} https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
 			         '''
 			        
 			}
