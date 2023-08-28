@@ -44,7 +44,7 @@ pipeline {
 					git add .
 					git commit -m "test"
 					git remote set-url origin https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
-					git push origin staging
+					git push origin main
 					
 				'''
 				
