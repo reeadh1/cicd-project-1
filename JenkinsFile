@@ -38,6 +38,7 @@ pipeline {
 				sh '''
 					git config --global user.email "islam.arif87@gmail.com"
 					git config --global user.name "arifislam007"
+					git fetch --all
 					git checkout -b staging
 					git add .
 					git commit -m "deployment file updated version ${BUILD_NUMBER}"
