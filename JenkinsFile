@@ -38,11 +38,14 @@ pipeline {
 				sh '''
 					git config --global user.email "islam.arif87@gmail.com"
 					git config --global user.name "arifislam007"
+					git checkout -b staging
+					git branch -l
+					git status
 					git add .
-					git commit -m "deployment file updated version ${BUILD_NUMBER}"
-					git remote set-url origin https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
-					#git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
-					git push origin main
+					git commit -m "test"
+					git remote set-url staging https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
+					git push staging staging
+					
 				'''
 				
 			}
