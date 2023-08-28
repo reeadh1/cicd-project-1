@@ -38,8 +38,8 @@ pipeline {
 				sh '''
 					git config --global user.email "islam.arif87@gmail.com"
 					git config --global user.name "arifislam007"
-					git checkout -b staging
-					git branch -l
+					#git checkout -b staging
+					#git branch -l
 					git status
 					git add .
 					git commit -m "test"
