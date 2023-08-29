@@ -5,7 +5,7 @@ metadata:
   labels:
     app: spring-boot-app
 spec:
-  replicas: 5
+  replicas: 8
   selector:
     matchLabels:
       app: spring-boot-app
