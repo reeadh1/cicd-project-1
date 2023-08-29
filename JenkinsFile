@@ -29,7 +29,7 @@ pipeline {
         }
 		stage("Push to Git Repository") {
 			environment {
-				GITHUB_TOKEN = "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"
+				GITHUB_TOKEN = "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"
 				GIT_USER_NAME = "arifislam007"
 				GIT_REPO_NAME = "cicd-project-1.git"
 			}
@@ -41,7 +41,7 @@ pipeline {
 					git config --global user.name "arifislam007"
 					git commit -am "deployment file updated version ${BUILD_NUMBER}"
 					git remote set-url origin https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
-					git push origin master
+					git push origin main
 			         '''
 			        
 			}
