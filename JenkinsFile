@@ -1,51 +1,46 @@
 pipeline {
     agent any
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
-    }
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    }
     stages {
-        stage('Checkout') {
+        stage("Clone Git Repository") {
             steps {
-                sh 'echo passed'
-                git branch: 'main', url: 'https://github.com/arifislam007/cicd-project-1.git'
+                git(
+                    url: "https://github.com/arifislam007/spring-bot-jenkins-k8s.git",
+                    branch: "main",
+                    changelog: true,
+                    poll: true
+                )
             }
         }
-        stage('Build and Test') {
+        stage("Create artifacts or make changes") {
             steps {
-                sh 'ls -ltr'
-                sh 'mvn clean package'
-                script {
-                    sh 'chmod -R 777 target'
+                sh''' 
+		echo ${BUILD_NUMBER}
+		touch testfile1
+                git add testfile
+                git commit -m 'Add testfile from Jenkins Pipeline'
+		sed -i "s/spring-bot:base/spring-bot:${BUILD_NUMBER}/g" ./deployment.yml
+		'''
+            }
+        }
+        stage("Push to Git Repository") {
+            steps {
+                withCredentials([gitUsernamePassword(credentialsId: 'gitTokenAccess', gitToolName: 'Default')]) {
+			sh'''
+			#git config --global user.name "arifislam007"
+			#git config --global user.email "islam.arif87@gmail.com"
+			#git add .
+			#git commit -m "Update deployment file"
+			git config --global user.name "Jenkins Pipeline"
+			git config --global user.email "jenkins@localhost"
+			git push -u origin main
+			'''
                 }
             }
         }
-		stage('Update Deployment FIle') {
-            steps {
-                sh "sed -i 's/spring-bot:base/spring-bot:${BUILD_NUMBER}/' ./deployment.yml"
-            }
+    }
+    post {
+        always {
+            deleteDir()
         }
-		stage("Push to Git Repository") {
-			environment {
-				GITHUB_TOKEN = "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"
-				GIT_USER_NAME = "arifislam007"
-				GIT_REPO_NAME = "cicd-project-1.git"
-			}
-
-			steps {
-			            
-			         sh '''
-					git config --global user.email "islam.arif87@gmail.com"
-					git config --global user.name "arifislam007"
-					git commit -am "deployment file updated version ${BUILD_NUMBER}"
-					git remote set-url origin https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
-					git push origin main
-			         '''
-			        
-			}
-		}
-		
     }
 }
