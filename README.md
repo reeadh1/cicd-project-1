@@ -18,6 +18,9 @@ To ensure smooth execution of the project, please make sure to set up the follow
 
  SCANNER_HOME= tool 'sonar-scanner'
 
+ ## Environment Setup for docker regestry 
+ Keep the docker hub credential id as same "docker-cred" or update jenkinsfile as per your envrionment. 
+
 
 
  
