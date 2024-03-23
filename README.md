@@ -5,5 +5,5 @@
         jdk 'jdk'
         maven 'mvn'
         }
-   ** first jdk is the tools and second jdk is the name of the tool. this name is given during JDK envrionment setup from Manage Jenkins. 
+   ** first jdk is the tools and second jdk is the name of the tool. this name is given during JDK envrionment setup from Manage Jenkins. **
  
