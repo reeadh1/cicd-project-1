@@ -60,8 +60,8 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'kub-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.207.10:6443') {
-                    sh 'kubectl apply -f deployment.yml -n webapps'
+                withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'kub-cred', namespace: 'java-app', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.207.10:6443') {
+                    sh 'kubectl apply -f deployment.yml -n java-app'
                 }
             }
         }
