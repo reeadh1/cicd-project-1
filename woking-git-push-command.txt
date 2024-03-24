@@ -1,0 +1,17 @@
+git add .
+git commit -m "update deployment file"
+git remote set-url origin https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
+git push origin main
+
+
+git checkout -b staging
+git branch -l
+git status
+git add
+git add .
+git commit -m "test"
+vi deployment.yml
+git add .
+git commit -m "test"
+git remote set-url origin https://arifislam007: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@github.com/arifislam007/cicd-project-1.git
+git push origin staging
