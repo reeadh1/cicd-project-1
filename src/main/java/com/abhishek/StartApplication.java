@@ -20,7 +20,7 @@ public class StartApplication extends SpringBootServletInitializer {
     @GetMapping("/")
     public String index(final Model model) {
         model.addAttribute("title", "I have successfully built a Spring Boot application using Maven");
-        model.addAttribute("msg", "This application is deployed onto Kubernetes using Argo CD");
+        model.addAttribute("msg", "This application is deployed by shihab");
         return "index";
     }
 
