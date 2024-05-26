@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -6,10 +5,11 @@
 
     <groupId>com.abhishek</groupId>
     <artifactId>spring-boot-demo</artifactId>
-    <packaging>war</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
+    <packaging>war</packaging> <!-- Change packaging to war -->
+
     <name>spring-boot-demo</name>
-    <url>http://maven.apache.org</url>
+    <url></url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -21,8 +21,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>11</java.version>
     </properties>
 
@@ -49,13 +47,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -66,6 +57,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- Add the following configuration for .war packaging -->
+                <configuration>
+                    <layout>WAR</layout>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -76,18 +71,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-                 <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version>
-            <configuration>
-                <!-- Configuration options for the WAR plugin -->
-                <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-            </configuration>
-        </plugin>
 
         </plugins>
     </build>
-
-
 </project>
