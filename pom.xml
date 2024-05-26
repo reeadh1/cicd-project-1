@@ -6,10 +6,10 @@
 
     <groupId>com.abhishek</groupId>
     <artifactId>spring-boot-demo</artifactId>
-    <version>1.0</version>
-
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-demo</name>
-    <url></url>
+    <url>http://maven.apache.org</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -45,6 +45,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
