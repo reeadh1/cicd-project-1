@@ -19,7 +19,7 @@ public class StartApplication extends SpringBootServletInitializer {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "Home task done successfully by Reeadh");
+        model.addAttribute("title", "Home task done successfully by reeadh with cicd pipeline");
         model.addAttribute("msg", "This application is deployed by reeadh");
         return "index";
     }
